@@ -1,0 +1,32 @@
+<div class="panel-heading">
+    <h2>Lista de Clientes</h2>
+  </div>
+  <div class="panel-body">
+    <!-- <button  type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdate">crear</button> -->
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>clienteId</th>
+          <th>nombre</th>
+          <th>apellidos</th>
+          <th>direccion</th>
+          <th>correo</th>
+          <th>fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{cliente.clienteId}}</td>
+          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.apellidos}}</td>   
+          <td>{{cliente.direccion}}</td>
+          <td>{{cliente.correo}}</td>
+          <td>{{cliente.fecha|date}}</td>       
+          <td><button (click)="deleteclient(cliente.clienteId)" class="btn btn-danger">Borrar</button>
+            <button (click)="openFormModalupdate(cliente)" type="button" class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdatecliente">Actualizar</button>
+          </td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<app-clientes-modal [modo]="modo" [clienteselect]="clienteselect" ></app-clientes-modal>

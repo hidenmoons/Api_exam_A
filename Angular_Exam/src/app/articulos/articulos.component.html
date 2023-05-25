@@ -1,0 +1,46 @@
+
+  <div class="panel-heading">
+    <h2>Lista de Articulos</h2>
+  </div>
+  <div class="panel-body">
+   
+    
+    <button (click)="openFormModalcreate()" type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdate">crear</button>
+    <button (clic)="getArticulos()" type="button" class="btn btn-secondary ms-2">Mostrar</button>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>codigo</th>
+            <th>tiendaId</th>
+            <th>descripcion</th>
+            <th>precio</th>
+            <th>imagen</th>
+            <th>stock</th>
+            <th>fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let articulos of articulo">
+          <td>{{articulos.codigo}}</td>
+          <td>{{articulos.tiendaId}}</td>
+          <td>{{articulos.descripcion}}</td>
+          <td>{{articulos.precio}}</td>
+          <td  class="imgcontainer">
+            <ng-container *ngIf="articulos.imagen; else noImage">
+              <img src="{{articulos.imagen}}" (error)="imageFail($event)">           
+            </ng-container>
+            <ng-template #noImage>
+              <span>no se ha subido 
+                <br>una imagen correctamente</span>
+            </ng-template>
+          </td> 
+          <td>{{articulos.stock}}</td>
+          <td>{{articulos.fecha|date}}</td>
+          <td><button (click)="deleteart(articulos.codigo)" class="btn btn-danger">Borrar</button>
+            <button  (click)="openFormModalupdate(articulos)" type="button" class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdate">Actualizar</button></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-articulos-modal [modo]="modo" [articuloselect]="articuloselect" ></app-articulos-modal>

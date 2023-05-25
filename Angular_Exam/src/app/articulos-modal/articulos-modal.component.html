@@ -1,0 +1,101 @@
+<div class="modal fade" id="myModalupdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Formulario de Articulos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form *ngIf="modo === 'crear'" (ngSubmit)="creatArt()" >
+            <div class="mb-3">
+              <label for="sucursal" class="form-label">Codigo</label>
+              <input [(ngModel)]="articulos.codigo" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="Codigo" 
+              placeholder="Ingrese ID del articulo">
+            </div>
+            <div class="mb-3">
+              <label for="sucursal" class="form-label">TiendaID</label>
+              <input inputmode="numeric" [(ngModel)]="articulos.tiendaId" type="number" class="form-control" [ngModelOptions]="{standalone: true}" id="TiendaID" 
+              placeholder="Ingrese la TiendaID">
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Descripcion</label>
+              <input [(ngModel)]="articulos.descripcion" type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+               id="Descripcion" placeholder="Ingrese la Descripcion">
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Precio</label>
+              <input inputmode="numeric" [(ngModel)]="articulos.precio" type="number" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Precio">
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Imagen</label>
+              <input [(ngModel)]="cleanurl"  type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="Imagen" placeholder="Imagen">
+
+              <input class="custom-file-input" type="file" (change)="onUploadImage($event)">
+
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Stock</label>
+              <input inputmode="numeric" [(ngModel)]="articulos.stock" type="number" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Ingrese Stock">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </form>
+  
+          <form *ngIf="modo === 'actualizar'"(ngSubmit)="updateArt()" >
+
+            <div class="mb-3">
+              <label for="tiendaid" class="form-label">Codigo</label>
+              <input [(ngModel)]="articuloselect.codigo" [value]="articuloselect.codigo" name="tiendaId" 
+              readonly type="text" class="form-control" id="tiendaid"  placeholder="Ingrese el ID de la tienda" 
+              [ngModelOptions]="{standalone: true}">
+            </div>
+          
+            <div class="mb-3">
+              <label for="sucursal" class="form-label">TiendaID</label>
+              <input [(ngModel)]="articuloselect.tiendaId" type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="TiendaID" 
+              placeholder="Ingrese la TiendaID">
+            </div>
+
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Descripcion</label>
+              <input [(ngModel)]="articuloselect.descripcion" type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}"
+               id="Descripcion" placeholder="Ingrese la Descripcion">
+            </div>
+
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Precio</label>
+              <input [(ngModel)]="articuloselect.precio" type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Precio">
+            </div>
+
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Imagen</label>
+              <input [(ngModel)]="articuloselect.imagen" type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="Imagen" placeholder="Imagen">
+              <input class="custom-file-input" type="file" (change)="onUploadImage($event)">
+
+            </div>
+
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Stock</label>
+              <input [(ngModel)]="articuloselect.stock" type="text" class="form-control" 
+              [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Ingrese Stock">
+              
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cerrar</button>
+          </form>
+        </div>
+  
+          
+        </div>
+      </div>
+    </div>
+  

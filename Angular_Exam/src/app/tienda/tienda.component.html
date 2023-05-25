@@ -1,0 +1,28 @@
+    <div class="panel-heading">
+      <h2>Lista de tiendas</h2>
+    </div>
+    <div class="panel-body">
+      <button (click)="openFormModalcreate()"  type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdate">crear</button>
+      <table class="table table-striped" *ngIf="refreshTable">
+        <thead>
+          <tr>
+            <th>tiendaId</th>
+            <th>Sucursal</th>
+            <th>Direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tiendas of tienda">
+            <td>{{tiendas.tiendaId}}</td>
+            <td>{{tiendas.sucursal}}</td>
+            <td>{{tiendas.direccion}}</td>         
+            <td><button (click)="deletetienda(tiendas.tiendaId)" class="btn btn-danger">Borrar</button>
+              <button  (click)="openFormModalupdate(tiendas)" type="button" class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-target="#myModalupdate">Actualizar</button>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+<app-tienda-modal-component [modo]="modo" [tiendaSeleccionada]="tiendaSeleccionada"></app-tienda-modal-component>
+  
+  

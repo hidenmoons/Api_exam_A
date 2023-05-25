@@ -1,0 +1,48 @@
+<div class="modal fade" id="myModalupdatecliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Formulario de Clientes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="updateClient()">
+                    <div class="mb-3">
+                        <label for="tiendaid" class="form-label">ClienteId</label>
+                        <input [(ngModel)]="clienteselect.clienteId" [value]="clienteselect.clienteId" name="tiendaId" readonly
+                            type="text" class="form-control" id="ClienteId" placeholder="Ingrese id cliente"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sucursal" class="form-label">Nombre</label>
+                        <input [(ngModel)]="clienteselect.nombre" type="text" class="form-control"
+                            [ngModelOptions]="{standalone: true}" id="Nombre" placeholder="Ingrese Nombre">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Apellidos" class="form-label">Apellidos</label>
+                        <input [(ngModel)]="clienteselect.apellidos" type="text" class="form-control"
+                            [ngModelOptions]="{standalone: true}" id="Apellidos" placeholder="Ingrese Apellidos">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Direccion" class="form-label">Direccion</label>
+                        <input [(ngModel)]="clienteselect.direccion" type="text" class="form-control"
+                            [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Direccion">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Correo" class="form-label">Correo</label>
+                        <input [(ngModel)]="clienteselect.correo" type="text" class="form-control"
+                            [ngModelOptions]="{standalone: true}" id="Correo" placeholder="Correo">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cerrar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

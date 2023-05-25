@@ -1,0 +1,36 @@
+<main class="form-signin w-100 m-auto ">
+  <form (ngSubmit)="crearUsuario()" >
+    <h1 class="h3 mb-3 fw-normal">Registro de usuario</h1>
+
+    <div class="form-floating my-2">
+      <input type="text" class="form-control" id="floatingInput" placeholder="nombre" 
+      [(ngModel)]="usuario.nombre"  [ngModelOptions]="{standalone: true}">
+      <label for="floatingInput">nombre</label>
+    </div>
+
+    <div class="form-floating my-2">
+      <input type="text" class="form-control" id="floatingInput" placeholder="apellidos" 
+      [(ngModel)]="usuario.apellidos" [ngModelOptions]="{standalone: true}" >
+      <label for="floatingInput">apellidos</label>
+    </div>
+    
+    <div class="form-floating my-2">
+        <input type="text" class="form-control" id="floatingInput" placeholder="direccion" 
+        [(ngModel)]="usuario.direccion" [ngModelOptions]="{standalone: true}" >
+        <label for="floatingInput">direccion</label>
+      </div>
+    
+      <div class="form-floating my-2">
+        <input type="text" class="form-control" id="floatingInput" placeholder="correo" 
+        [(ngModel)]="usuario.correo" [ngModelOptions]="{standalone: true}" >
+        <label for="floatingInput">correo</label>
+      </div>
+
+    <button class="w-100 btn  btn-primary"  >Registrar</button>
+   
+  </form>
+  
+</main>
+
+
+

@@ -1,0 +1,47 @@
+<div class="modal fade" id="myModalupdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulario de Tienda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="modo === 'crear'" (ngSubmit)="createtienda()">
+          <div class="mb-3">
+            <label for="sucursal" class="form-label">Sucursal</label>
+            <input [(ngModel)]="tienda.Sucursal" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="sucursal" placeholder="Ingrese la sucursal de la tienda">
+          </div>
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input [(ngModel)]="tienda.Direccion" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="direccion" placeholder="Ingrese la dirección de la tienda">
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button  type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cerrar</button>
+        </form>
+
+        <form *ngIf="modo === 'actualizar'" (ngSubmit)="updatetienda()">
+          <div class="mb-3">
+            <label for="tiendaid" class="form-label">Tienda ID</label>
+            <input [(ngModel)]="tiendaSeleccionada.tiendaId" 
+            [value]="tiendaSeleccionada.tiendaId" name="tiendaId" readonly type="text" 
+            class="form-control" id="tiendaid" placeholder="Ingrese el ID de la tienda" 
+            [ngModelOptions]="{standalone: true}">
+          </div>
+
+          <div class="mb-3">
+            <label for="sucursal" class="form-label">Sucursal</label>
+            <input [(ngModel)]="tiendaSeleccionada.sucursal" type="text" class="form-control" id="sucursal" placeholder="Ingrese la sucursal de la tienda" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input [(ngModel)]="tiendaSeleccionada.direccion" type="text" class="form-control" id="direccion" placeholder="Ingrese la dirección de la tienda" [ngModelOptions]="{standalone: true}">
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cerrar</button>
+        </form>
+      </div>
+
+        
+      </div>
+    </div>
+  </div>

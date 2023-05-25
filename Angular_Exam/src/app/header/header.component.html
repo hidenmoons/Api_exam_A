@@ -1,0 +1,79 @@
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+          <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="tienda" class="nav-link px-2">Tienda</a></li>
+        <li><a routerLink="/clientes" class="nav-link px-2">Clientes</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Articulos
+          </a>
+          <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="/articulos/venta">Comprar</a></li>
+            <li><a class="dropdown-item" routerLink="/Articulos">Editar</a></li>
+            <li><a class="dropdown-item" routerLink="articulos/tienda">Articulos por tienda</a></li>
+          </ul>
+        </li>
+      </ul> 
+      
+      <div class="col-md-3 text-end" *ngIf="!islogin()">
+        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" 
+        data-bs-target="#myModallogin">Login</button>
+        <button routerLink="/registrocliente" type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+
+      <div class="col-md-3 text-end" *ngIf="islogin()">
+        <a>
+          bienvenido: {{cliente.nombre}}
+        </a>
+         
+        <button routerLink="/" (click)="logoff()" type="button" class="btn btn-primary">exit</button>
+      </div>
+
+    </header>
+  </div>
+
+
+
+<!-- MODAL -->
+  <div class="modal fade" id="myModallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Formulario de Tienda</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="login()">
+            <h1 class="h3 mb-3 fw-normal">Login de usuario</h1>
+
+            <div class="form-floating my-2">
+              <input type="text" class="form-control" [(ngModel)]="cliente.nombre"  [ngModelOptions]="{standalone: true}" id="floatingInput" placeholder="nombre">
+              <label for="floatingInput">nombre</label>
+            </div>
+        
+            
+              <div class="form-floating my-2">
+                <input type="text"[(ngModel)]="cliente.correo"  [ngModelOptions]="{standalone: true}" class="form-control" id="floatingInput" placeholder="correo" >
+                <label for="floatingInput">correo</label>
+              </div>
+        
+            <button routerLink="/articulos/venta" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Iniciar</button>
+            <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cerrar</button>
+          </form>
+        </div>
+  
+          
+        </div>
+      </div>
+    </div>
+    
+   
+ 
+    
+    
