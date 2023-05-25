@@ -30,6 +30,7 @@ crearUsuario() {
     },
     error => {
       // Manejar el error
+      alert('el correo debe de ser unico');
       console.error(error);
     }
   );

@@ -20,6 +20,10 @@ const routes: Routes = [{
   component: TiendaComponent
 },
 {
+  path:'',
+  component:RegisterClientComponent
+},
+{
   path: 'articulos/venta',
   component: ArticulosventaComponent, canActivate: [AuthGuard]
 },
